@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="~{fragments::head}">
+    <title id="titlePage">Novo Usuário</title>
+    <script id="personalScript" src="/scripts/usuario/editUser.js"></script>
+</head>
+
+<body>
+    <header th:replace="~{fragments::header}"></header>
+    <section class="container">
+        <form th:action="@{/{tipo}/editar(tipo=${user.getClass().getSimpleName().toLowerCase()})}" method="post" id="form" class="form my-5  mx-auto" >
+        <input type="hidden" name="id" th:value="${user.id}">
+            <h1 class="col-12 text-center mt-5 px-2">Novo Usuario</h1>
+            <div class="row justify-content-center">
+                <h2 class="col-12 text-center mt-5 px-2">Dados pessoais</h2>
+                <div class="col-5 form-floating mt-3">
+                    <input type="text" name="nome" id="nome" class="form-control" placeholder="none" required th:value="${user.nome}">
+                    <label for="nome" class="form-label">Nome:</label>
+                    <p class="error d-none">Este campo é obrigatório</p>
+                </div>
+                <div class="col-5 form-floating mt-3">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="none" required th:value="${user.email}">
+                    <label for="email" class="form-label">Email:</label>
+                    <p class="error d-none">Este campo é obrigatório</p>
+                </div>
+                <div class="col-5 form-floating mt-3">
+                    <input type="password" name="senhaAtual" id="senhaAtual" class="form-control" placeholder="none" required>
+                    <label for="senha" class="form-label">Senha Atual:</label>
+                    <p class="error d-none">Este campo é obrigatório</p>
+                </div>
+                <div class="col-5 form-floating mt-3">
+                    <input type="password" name="senha" id="senha" class="form-control"
+                        placeholder="none">
+                    <label for="confirmaSenha" class="form-label">Nova senha (Opcional):</label>
+                    <p class="error d-none">Este campo é obrigatório</p>
+                </div>
+            </div>
+
+
+            <div th:if="${tipo.equals('Aluno')}" class="row justify-content-center my-5" id="dadosAluno">
+                <div class="col-5 form-floating mt-3">
+                    <input type="text" name="cpf" id="cpf" class="form-control dados-aluno" placeholder="none" required th:value="${user.cpf}">
+                    <label for="cpf" class="form-label">CPF:</label>
+                    <p class="error d-none">Este campo é obrigatório</p>
+                </div>
+                <div class="col-5 form-floating mt-3">
+                    <input type="text" name="rg" id="rg" class="form-control dados-aluno" placeholder="none" required th:value="${user.rg}">
+                    <label for="rg" class="form-label">RG:</label>
+                    <p class="error d-none">Este campo é obrigatório</p>
+                </div>
+            </div>
+
+            <div th:if="${tipo.equals('Empresa')}" class="row justify-content-center my-5" id="dadosEmpresa">
+                <div class="col-10 form-floating mt-3">
+                    <input type="text" name="cnpj" id="cnpj" class="form-control dados-empresa" placeholder="none"
+                        required th:value="${user.cnpj}">
+                    <label for="cnpj" class="form-label">CNPJ:</label>
+                    <p class="error d-none">Este campo é obrigatório</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center my-5">
+                <h2 class="col-12 text-center">Endereço</h2>
+                <div class="col-5 form-floating mt-3">
+                    <input type="text" name="cep" id="cep" class="form-control" placeholder="none" required th:value="${end.cep}">
+                    <label for="cep" class="form-label">CEP:</label>
+                    <p class="error d-none">Este campo é obrigatório</p>
+                </div>
+                <div class="col-5 form-floating mt-3">
+                    <input type="text" name="bairro" id="bairro" class="form-control" placeholder="none" readonly
+                        required th:value="${end.bairro}">
+                    <p class="error d-none">Este campo é obrigatório</p>
+                    <label for="bairro" class="form-label read-only">Bairro:</label>
+                </div>
+                <div class="col-3 form-floating mt-3">
+                    <input type="text" name="estado" id="estado" class="form-control" placeholder="none" readonly
+                        required th:value="${end.estado}">
+                    <p class="error d-none">Este campo é obrigatório</p>
+                    <label for="estado" class="form-label read-only">Estado:</label>
+                </div>
+                <div class="col-7 form-floating mt-3">
+                    <input type="text" name="cidade" id="cidade" class="form-control" placeholder="none" readonly
+                        required th:value="${end.cidade}">
+                    <p class="error d-none">Este campo é obrigatório</p>
+                    <label for="cidade" class="form-label read-only">Cidade:</label>
+                </div>
+                <div class="col-7 form-floating mt-3">
+                    <input type="text" name="rua" id="rua" class="form-control" placeholder="none" readonly required th:value="${end.rua}">
+                    <label for="rua" class="form-label read-only">Rua:</label>
+                    <p class="error d-none">Este campo é obrigatório</p>
+                </div>
+                <div class="col-3 form-floating mt-3">
+                    <input type="number" name="numero" id="numero" min="1" class="form-control" placeholder="none"
+                        required th:value="${end.numero}">
+                    <p class="error d-none">Este campo é obrigatório</p>
+                    <label for="numero" class="form-label">Número:</label>
+                </div>
+
+
+            </div>
+
+            <div class="row justify-content-center">
+                <button type="submit" class="col-5 my-3 btn btn-primary h-100">Salvar alterações</button>
+            </div>
+        </form>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

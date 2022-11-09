@@ -1,0 +1,157 @@
+@charset "ISO-8859-1";
+
+.info {
+	max-width: 900px;
+	min-height: 50px;
+	padding: 12.5px;
+	border-radius: 20px;
+	margin-top: 10px;
+}
+
+.erro {
+	background-color: DarkSalmon;
+}
+
+.success {
+	background-color: Aquamarine;
+}
+
+.form {
+	max-width: 900px;
+	min-height: 500px;
+	padding: 12.5px;
+	border-radius: 20px;
+	border: #18578d 1.5px solid;
+	box-shadow: #154873 2px 2px;
+}
+
+.form-control, .form-select {
+	border: none;
+	border-bottom: 2px #154873 solid;
+	border-radius: 0;
+}
+
+.form-invalid {
+	border-bottom: 3px #f00 solid !important;
+}
+
+.form-control:read-only, .form-control:disabled {
+	background: none;
+	border-bottom: 2px #474747 solid;
+}
+
+.read-only {
+	color: #474747 !important;
+}
+
+.form-control:focus, .form-select:focus {
+	outline: none !important;
+	box-shadow: none !important;
+	border-bottom: 3px #18578d solid;
+	height: calc(3.5rem + 4px)
+}
+
+.form-login {
+	max-width: 450px;
+}
+
+.error {
+	color: #f00;
+}
+
+.message-sucess {
+	max-width: 450px;
+	background: rgba(0, 255, 0, 0.247);
+	min-height: 75px;
+	border-radius: 20px;
+	border: green 1.5px solid;
+	box-shadow: green 2px 2px;
+	color: green;
+}
+
+.message-error {
+	max-width: 450px;
+	background: rgba(255, 0, 0, 0.247);
+	min-height: 75px;
+	border-radius: 20px;
+	border: red 1.5px solid;
+	box-shadow: red 2px 2px;
+	color: red;
+}
+
+input[type='radio'].form-check-input:checked {
+	outline: #212529 !important;
+	box-shadow: none !important;
+	border: #18578d !important;
+	background: #212529 !important;
+	color: #212529 !important;
+}
+
+.card-saldo {
+	min-height: 150px;
+	border: #18578d 1px solid;
+	border-radius: 15px;
+	box-shadow: #154873 1px 1px;
+	margin-top: 40px;
+}
+
+.text-saldo {
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.debito {
+	color: red;
+	font-weight: bolder;
+}
+
+.credito {
+	color: green;
+	font-weight: bolder;
+}
+
+header {
+	min-height: 50px;
+	background: #18578d;
+	padding: 0px 12px;
+}
+
+header a {
+	color: white !important;
+	text-decoration: none;
+}
+
+header a i:hover {
+	color: rgb(171, 171, 171);
+}
+
+.header-button {
+	cursor: pointer;
+	background: #264a77;
+	text-align: center;
+	line-height: 50px;
+	min-height: 50px;
+	margin: 0;
+}
+
+.header-button:hover {
+	background: #17334f;
+}
+
+.coins {
+	color: #987b2e;
+}
+
+.sub-info {
+	margin-left: 8%;
+	font-size: large;
+}
+
+.image-preview {
+	min-height: 150px;
+	max-height: 200px;
+	border: #18578d 1px solid;
+	padding: 5px;
+	overflow: hidden;
+}

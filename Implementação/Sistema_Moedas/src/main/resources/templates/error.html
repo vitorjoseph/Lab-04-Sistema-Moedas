@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="~{fragments::head}">
+    <title id="titlePage">Erro</title>
+    <script id="personalScript">
+    </script>
+</head>
+
+<body>
+    <header th:replace="~{fragments::header}"></header>
+
+    <section class="container">
+        <div class="row">
+            <h1 class="col-12 text-center my-4">Ops aconteceu um erro</h1>
+			 <div th:if="${status == 404}" class="row message-error my-5 mx-auto align-items-center">
+	            <h4 class="col-12 text-center">A página que você tentou acessar não exite</h4>
+	        </div>
+	        <div th:if="${status == 403}" class="row message-error my-5 mx-auto align-items-center">
+	            <h4 class="col-12 text-center">Você não tem acesso a essa página</h4>
+	        </div>
+	        <div th:if="${status == 500}" class="row message-error my-5 mx-auto align-items-center">
+	            <h4 class="col-12 text-center">Tivemos um erro em nosso servidor</h4>
+	        </div>
+            <p class="col-12 text-center"> <button class="btn btn-primary col-4" onclick="history.back();">Voltar</button></p>
+        </div>
+    </section>
+</body>
+
+</html>
