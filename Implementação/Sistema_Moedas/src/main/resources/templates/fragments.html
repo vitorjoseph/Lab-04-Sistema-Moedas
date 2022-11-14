@@ -29,7 +29,7 @@
 			<div sec:authorize="hasRole('PROFESSOR')" onclick="location.href='/professor';" class="col-1 header-button"><a class="col-1" href="/professor">Home</a></div>
 			<div sec:authorize="hasRole('EMPRESA')" onclick="location.href='/vantagem/listar';" class="col-2 header-button"><a class="col-2" href="/vantagem/listar">Minhas Vantagens</a></div>
 			<div sec:authorize="hasRole('ALUNO')" onclick="location.href='/vantagem/listar';" class="col-1 header-button"><a class="col-1" href="/vantagem/listar">Vantagens</a></div>
-			<div sec:authorize="hasAnyRole('ALUNO','EMPRESA')" onclick="location.href='/compra/cupons';" class="col-1 header-button"><a class="col-1" href="/compra/cupons">Cupons</a></div>
+			<div sec:authorize="hasAnyRole('ALUNO','EMPRESA')" onclick="location.href='/compra/cupons';" class="col-1 header-button"><a class="col-1" href="/compra/cupons">Histórico Cupons</a></div>
 			<div class="col"></div>
 			<div sec:authorize="hasAnyRole('PROFESSOR', 'ALUNO')" class="col-1 coins"><div><span sec:authentication="principal.conta.saldo" style="margin-right: 5px;"></span><i class="fa-solid fa-coins"></i></div></div>
 			<div sec:authorize="isAuthenticated()" onclick="location.href='/logout';" class="col-1 header-button"><a class="col-1" href="/logout">Sair</a></div>
