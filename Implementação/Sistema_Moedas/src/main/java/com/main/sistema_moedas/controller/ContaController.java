@@ -18,7 +18,6 @@ import com.main.sistema_moedas.model.usuario.Aluno;
 import com.main.sistema_moedas.model.usuario.Professor;
 import com.main.sistema_moedas.model.usuario.Usuario;
 import com.main.sistema_moedas.model.Transferencia;
-import com.main.sistema_moedas.repository.CompraRepository;
 import com.main.sistema_moedas.repository.ContaRepository;
 import com.main.sistema_moedas.repository.UsuarioRepository;
 import com.main.sistema_moedas.repository.TransferenciaRepository;
@@ -51,7 +50,7 @@ public class ContaController {
     }
 
     @GetMapping("/transferir")
-    public ModelAndView transferirTela() {
+    public ModelAndView transferirMoedas() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Professor p = (Professor) auth.getPrincipal();
         List<Aluno> alunos = uRepository.findByInstituicao(p.getInstituicao());
@@ -62,8 +61,8 @@ public class ContaController {
     }
 
     @PostMapping("/transferencia")
-    public ModelAndView transferencia(Long alunoId, int qtdMoedas, String descricao) {
-        ModelAndView mv = transferirTela();
+    public ModelAndView realizarTransferencia(Long alunoId, int qtdMoedas, String descricao) {
+        ModelAndView mv = transferirMoedas();
         if (qtdMoedas < 1 || alunoId==null || descricao==null)
             return mv.addObject("erro", 0);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
