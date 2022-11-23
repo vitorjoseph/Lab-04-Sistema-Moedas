@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="~{fragments::head}">
     <title id="titlePage">Extrato</title>
@@ -9,54 +9,54 @@
 </head>
 
 <body>
-    <header th:replace="~{fragments::header}"></header>
-    <section class="container">
-        <div class="row justify-content-center">
-            <h1 class="col-12 text-center">Extrato</h1>
-            <div class="col-10">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <!-- <td scope="col">Tipo</td> -->
-                            <td scope="col">Data</td>
-                            <td scope="col">Origem/Destino</td>
-                            <td scope="col">Valor</td>
-                            <td scope="col">Descrição</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="e : ${extrato}">
-                            <th th:text="${formatter.format(e.data)}" scope="row"></th>
-                            <td
-                                th:text="${e.contaDestino.id == conta.id} ? ${ur.findProfessorByConta(e.contaOrigem.id).get()} : ${ur.findAlunoByConta(e.contaDestino.id).get()}">
-                            </td>
-                            <td th:text="${(e.contaDestino.id == conta.id?'+':'-')+e.valor}" th:classappend="${e.contaDestino.id == conta.id}?credito:debito">
-                            </td>
-                            <td th:text="${e.descricao}"></td>
-                        </tr>
-                        <tr th:if="${compras}" th:each="c : ${compras}">
-                            <th th:text="${formatter.format(c.data)}" scope="row"></th>
-                            <td
-                                th:text="${c.vantagem.empresa.nome}">
-                            </td>
-                            <td th:text="'-' + ${c.valor}" th:classappend="debito">
-                            </td>
-                            <td th:text="${c.vantagem.produto}"></td>
-                        </tr>
-                        <tr>
-                            <th th:text="${formatter.format(now)}" scope="row"></th>
-                            <td>Saldo Atual: </td>
-                            <td th:text="${conta.saldo}">
-                            </td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<header th:replace="~{fragments::header}"></header>
+<section class="container">
+    <div class="row justify-content-center">
+        <h1 class="col-12 text-center">Extrato</h1>
+        <div class="col-10">
+            <table class="table">
+                <thead>
+                <tr>
+                    <!-- <td scope="col">Tipo</td> -->
+                    <td scope="col">Data</td>
+                    <td scope="col">Origem/Destino</td>
+                    <td scope="col">Valor</td>
+                    <td scope="col">Descrição</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="e : ${extrato}">
+                    <th th:text="${formatter.format(e.data)}" scope="row"></th>
+                    <td
+                            th:text="${e.contaDestino.id == conta.id} ? ${ur.findProfessorByConta(e.contaOrigem.id).get()} : ${ur.findAlunoByConta(e.contaDestino.id).get()}">
+                    </td>
+                    <td th:text="${(e.contaDestino.id == conta.id?'+':'-')+e.valor}" th:classappend="${e.contaDestino.id == conta.id}?credito:debito">
+                    </td>
+                    <td th:text="${e.descricao}"></td>
+                </tr>
+                <tr th:if="${compras}" th:each="c : ${compras}">
+                    <th th:text="${formatter.format(c.data)}" scope="row"></th>
+                    <td
+                            th:text="${c.vantagem.empresa.nome}">
+                    </td>
+                    <td th:text="'-' + ${c.valor}" th:classappend="debito">
+                    </td>
+                    <td th:text="${c.vantagem.produto}"></td>
+                </tr>
+                <tr>
+                    <th th:text="${formatter.format(now)}" scope="row"></th>
+                    <td>Saldo Atual: </td>
+                    <td th:text="${conta.saldo}">
+                    </td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-    </section>
+    </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 </body>

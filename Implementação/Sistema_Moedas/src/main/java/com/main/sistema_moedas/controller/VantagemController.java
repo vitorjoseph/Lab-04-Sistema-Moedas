@@ -28,7 +28,7 @@ import com.main.sistema_moedas.repository.VantagemRepository;
 @RequestMapping("/vantagem")
 public class VantagemController {
 
-    private static final String PATH_IMAGENS = "src\\main\\resources\\static";
+    private static final String PATH_IMAGENS = "src/main/resources/static";
 
     @Autowired
     private VantagemRepository vRepository;
